@@ -1,10 +1,18 @@
 Install Apache + PHP + MySQL client:
 
 sudo yum update -y
-sudo yum install -y httpd php php-mysqli mariadb
 
-Start Apache:
+# Install Apache
+sudo yum install -y httpd
 
+# Install PHP
+sudo amazon-linux-extras enable php8.0
+sudo yum install -y php php-mysqlnd
+
+# Install MySQL client
+sudo dnf install mariadb105 -y
+
+# Start Apache
 sudo systemctl start httpd
 sudo systemctl enable httpd
 
@@ -222,7 +230,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-Create Table
+#Database creation:- 
+create database storage;
+use storage;
+
+#Create Table
 
 Once RDS is created, connect via MySQL client or phpMyAdmin:
 CREATE TABLE users (
